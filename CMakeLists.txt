@@ -14,12 +14,11 @@ pico_sdk_init()
 
 include_directories(${CMAKE_SOURCE_DIR}/lib)
 
-add_executable(${PROJECT_NAME} lib/ssd1306.c bus_control.c )
+add_executable(${PROJECT_NAME} lib/ssd1306.c bus_control.c)
 
-target_include_directories(${PROJECT_NAME} PRIVATE${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/bus_control.pio)
-target_sources(${PROJECT_NAME} PRIVATE bus_control.c)
 
 target_link_libraries(${PROJECT_NAME}
         pico_stdlib
